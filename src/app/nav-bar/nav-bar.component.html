@@ -1,0 +1,49 @@
+<div>
+    <mat-toolbar color="secondary">
+        <mat-toolbar-row>
+            <div fxShow="true" fxHide.gt-sm="true">
+                <button mat-icon-button>
+                    <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+                </button>
+            </div>           
+            <a mat-button>
+                <img
+                    src="assets/myFlix_logo.png"
+                    alt="myFlix logo"
+                    class="logo"
+                    routerLink="/movies" />
+            </a>
+            <span class="spacer"></span>   
+            <div fxShow="true" fxHide.lt-sm="true">
+                <a mat-button class="nav-item" [routerLink]="'/movies'">
+                    <mat-icon>movie</mat-icon> All Movies
+                </a>
+                <a mat-button class="nav-item" [routerLink]="'/users'">
+                    <mat-icon>person</mat-icon> Profile
+                </a>
+                <a mat-raised-button class="nav-item-button" (click)="userLogout()">
+                    Log Out
+                </a>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-sidenav-container fxFlexFill>
+        <mat-sidenav #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true" class="side-menu-container">
+            <div fxLayout="column">
+                <a mat-button class="nav-item" [routerLink]="'/movies'">
+                    <mat-icon>movie</mat-icon> All Movies
+                </a>
+                <a mat-button class="nav-item" [routerLink]="'/users'">
+                    <mat-icon>person</mat-icon> Profile
+                </a>
+                <a mat-raised-button class="nav-item-button" (click)="userLogout()">
+                    Log Out
+                </a>
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content fxFlexFill>
+            <app-movie-card *ngIf="router.url === '/movies'"></app-movie-card>
+            <!-- <app-user-profile *ngIf="router.url === '/users'"></app-user-profile> -->
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
