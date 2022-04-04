@@ -1,6 +1,7 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DirectorCardComponent } from './../director-card/director-card.component';
 import { MatDialog } from '@angular/material/dialog';
+import {PageEvent} from '@angular/material/paginator';
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { GenreCardComponent } from '../genre-card/genre-card.component';
@@ -19,13 +20,13 @@ export class MovieCardComponent implements OnInit {
     public fetchDataApi: FetchApiDataService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getMovies();
     this.getFavoriteMovies();
   }
-
+  
   // fetching movies data
   getMovies(): void {
     this.fetchDataApi

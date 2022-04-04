@@ -29,6 +29,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { GenreCardComponent } from './genre-card/genre-card.component';
 import { DirectorCardComponent } from './director-card/director-card.component';
 import { SynposisCardComponent } from './synposis-card/synposis-card.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 const appRoutes: Routes= [
   {
@@ -60,7 +62,9 @@ const appRoutes: Routes= [
     NavBarComponent,
     GenreCardComponent,
     DirectorCardComponent,
-    SynposisCardComponent
+    SynposisCardComponent,
+    UserProfileComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
