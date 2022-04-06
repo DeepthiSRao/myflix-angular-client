@@ -13,10 +13,10 @@ The project was generated with the [Angular CLI](https://github.com/angular/angu
 ### Project live demo link : https://deepthisrao.github.io/myflix-angular-client/
 ![Markdown Logo](/src/app/images/HomePage.png)
 
-### Server side live demo link: https://my-flix-movie-api.herokuapp.com/
-### Server side code link: https://my-flix-movie-api.herokuapp.com/
+##### Server side live demo link: https://my-flix-movie-api.herokuapp.com/
+##### Code link: https://my-flix-movie-api.herokuapp.com/
 
-## Installation
+### Installation
 
 Clone the repository, change directories, and use NPM to install the dependencies.
 
