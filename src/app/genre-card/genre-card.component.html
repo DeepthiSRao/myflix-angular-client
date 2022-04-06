@@ -1,12 +1,14 @@
 <!-- src/app/genre-card/genre-card.component.html -->
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Genre: {{ data.name }}</mat-card-title>
-        <button mat-icon-button aria-label="close dialog" mat-dialog-close>
-            <mat-icon>close</mat-icon>
-        </button>
-    </mat-card-header>
-    <mat-dialog-content>
-        {{ data.description }}
-    </mat-dialog-content>
-</mat-card>
+<div class="genre-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Genre: <span>{{ data.name }}</span></mat-card-title>
+            <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-card-header>
+        <mat-dialog-content>
+            {{ data.description }}
+        </mat-dialog-content>
+    </mat-card>
+</div>

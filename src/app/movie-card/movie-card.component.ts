@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DirectorCardComponent } from './../director-card/director-card.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -33,7 +34,6 @@ export class MovieCardComponent implements OnInit {
         .getAllMovies()
         .subscribe((resp: any) => {
           this.movies = resp;
-          console.log(this.movies);         
           return this.movies;          
         });
   }
@@ -85,6 +85,9 @@ export class MovieCardComponent implements OnInit {
     birth: string,
     death: string 
   ) : void {
+    death = (death === undefined) ? 'N/A' : death;
+    birth = this.getFormatedDate(birth,'MM-dd-yyyy') || 'null';
+    
     this.dialog.open(DirectorCardComponent, {
       data: { name, bio, birth, death },
       width: '300px'
@@ -97,6 +100,12 @@ export class MovieCardComponent implements OnInit {
       data: { title, description},
       width: '300px'
     });
+  }
+
+  // format date
+  getFormatedDate(date: any, format: string) {
+    const datePipe = new DatePipe('en-US');
+    return datePipe.transform(date, format);
   }
 
   // check whether movie is user favorite?

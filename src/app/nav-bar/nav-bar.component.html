@@ -1,19 +1,19 @@
-<div>
+<div class="nav-container">
     <mat-toolbar color="secondary">
         <mat-toolbar-row>
-            <div fxShow="true" fxHide.gt-sm="true">
+            <div fxShow="true" fxHide.gt-xs="true">
                 <button mat-icon-button>
                     <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
                 </button>
             </div>           
-            <a mat-button>
+            <a mat-button class="nav-item">
                 <img
                     src="assets/myFlix_logo.png"
                     alt="myFlix logo"
                     class="logo"
                     routerLink="/movies" />
             </a>
-            <span class="spacer"></span>   
+            <div class="spacer" fxShow="true" fxHide.lt-sm="true"></div>   
             <div fxShow="true" fxHide.lt-sm="true">
                 <a mat-button class="nav-item" [routerLink]="'/movies'">
                     <mat-icon>movie</mat-icon> All Movies
@@ -21,8 +21,8 @@
                 <a mat-button class="nav-item" [routerLink]="'/users'">
                     <mat-icon>person</mat-icon> Profile
                 </a>
-                <a mat-raised-button class="nav-item-button" (click)="userLogout()">
-                    Log Out
+                <a mat-button class="nav-item" (click)="userLogout()">
+                    <mat-icon>logout</mat-icon> Log Out
                 </a>
             </div>
         </mat-toolbar-row>
@@ -30,14 +30,14 @@
     <mat-sidenav-container fxFlexFill>
         <mat-sidenav #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true" class="side-menu-container">
             <div fxLayout="column">
-                <a mat-button class="nav-item" [routerLink]="'/movies'">
+                <a mat-button class="nav-item-button" [routerLink]="'/movies'">
                     <mat-icon>movie</mat-icon> All Movies
                 </a>
-                <a mat-button class="nav-item" [routerLink]="'/users'">
+                <a mat-button class="nav-item-button" [routerLink]="'/users'">
                     <mat-icon>person</mat-icon> Profile
                 </a>
-                <a mat-raised-button class="nav-item-button" (click)="userLogout()">
-                    Log Out
+                <a mat-button class="nav-item-button" (click)="userLogout()">
+                    <mat-icon>logout</mat-icon>Log Out
                 </a>
             </div>
         </mat-sidenav>

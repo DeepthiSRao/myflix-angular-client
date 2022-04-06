@@ -40,7 +40,7 @@ export class UserRegistrationFormComponent implements OnInit {
           });
         }, 
         (response) => {
-          this.snackBar.open(response, 'OK', {
+          this.snackBar.open("Registration failed. Please check your data entered", 'OK', {
             duration: 2000,
           });
         });

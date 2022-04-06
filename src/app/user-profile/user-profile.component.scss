@@ -1,46 +1,78 @@
+$background-color1: #26c6da;
+$background-color2: #e0f7fa;
+$icon-color: #000;
+$primary-color: #006064;
+
+.main-container {
+    padding: 1rem 2rem;
+    cursor: pointer;
+    background: linear-gradient(to top, $background-color1 10%, $background-color2 100%);
+    min-height: 100vh;
+}
+
 .profile-container {
-    max-width: 400px;
-    margin: 1rem auto;
+    min-width: 20%;
+    max-width: 480px;
+    max-height: 25%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+
 }
 
 .movies-container {
     padding: 1rem 2rem;
     cursor: pointer;
+    min-width: 240px;
 }
 
-mat-card{
+mat-card {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
 }
 
-mat-card-header {
-    justify-content: center;
-    height: 70px;
+mat-card-content {
+    text-align: left;
 }
 
 mat-card-title {
-    font-size: 1.5rem;
-    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+mat-card-header {
+    justify-content: center;
+}
+
+.movies-container mat-card-header {
+    font-size: 1rem;
+    height: 70px;
 }
 
 mat-card-subtitle {
-    color: #dadada;
     font-size: .8rem;
+    font-style: italic;
+    text-align: center;
 }
 
 mat-card > img {
     width: 100%;
-
 }
 
 mat-card-actions {
     display: flex;
-    height: 30px;
+    height: 40px;
     justify-content: space-around;
     align-items: center;
+    padding: 0;
 }
-  
+
+.action-btn:hover{
+    background-color: $primary-color;
+    color: #fff;
+}
+
 mat-icon {
-    color: rgb(161, 7, 7);
+    color: $icon-color;
 }

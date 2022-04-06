@@ -1,9 +1,8 @@
-<div class="main-content">
-    <mat-card class="mat-elevation-z10 profile-container">
+<div class="main-container">
+    <mat-card class="mat-elevation-z10 profile-container ">
         <mat-card-header>
             <mat-card-title>User Profile</mat-card-title>
         </mat-card-header>
-        <mat-divider></mat-divider>
         <mat-card-content>
             <p><span>Username:</span> {{ user.Username }} </p>
             <p><span>Email:</span> {{ user.Email }} </p>
@@ -11,11 +10,13 @@
         <mat-card-actions>
             <button
                 (click)="openEditUserForm()"
+                color="primary"
                 mat-raised-button>
                 Edit Profile
             </button>
             <button
-                (click)="deleteUser()" 
+                (click)="deleteUser()"
+                color="primary" 
                 mat-raised-button>
                 Delete User
             </button>
@@ -34,7 +35,8 @@
                     <img src={{movie.ImagePath}} alt={{movie.Title}} style="height: 300px;"/>
                     <mat-card-actions>
                         <button
-                            mat-raised-button
+                            mat-button
+                            class="action-btn"
                             color="primary"
                             (click)="openGenreDialog(movie.Genre.Name, movie.Genre.Description)"
                         >
@@ -42,6 +44,7 @@
                         </button>
                         <button
                             mat-button
+                            class="action-btn"
                             color="primary"
                             (click)="openDirectorDialog(movie.Director.Name, movie.Director.Bio, movie.Director.Birth, movie.Director.Death)"
                         >
@@ -49,6 +52,7 @@
                         </button>
                         <button
                             mat-button
+                            class="action-btn"
                             color="primary"
                             (click)="openSynposisDialog(movie.Title, movie.Description)"
                         >

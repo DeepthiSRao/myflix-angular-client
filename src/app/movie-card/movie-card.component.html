@@ -1,7 +1,7 @@
 <!-- src/app/movie-card/movie-card.component.html -->
 <div class="movies-container">
-    <div fxLayout="row wrap" fxLayoutGap="16px grid">
-        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" *ngFor="let movie of movies; let i=index;">
+    <div fxLayout="row wrap" fxLayoutGap="20px grid">
+        <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.lg="25%" *ngFor="let movie of movies; let i=index;">
             <mat-card  class="mat-elevation-z4">
                 <mat-card-header>
                     <mat-card-title>{{movie.Title}}</mat-card-title>
@@ -10,8 +10,9 @@
                 <img src={{movie.ImagePath}} alt={{movie.Title}} style="height: 300px;"/>
                 <mat-card-actions>
                     <button
-                        mat-raised-button
+                        mat-button
                         color="primary"
+                        class="action-btn"
                         (click)="openGenreDialog(movie.Genre.Name, movie.Genre.Description)"
                     >
                         Genre
@@ -19,6 +20,7 @@
                     <button
                         mat-button
                         color="primary"
+                        class="action-btn"
                         (click)="openDirectorDialog(movie.Director.Name, movie.Director.Bio, movie.Director.Birth, movie.Director.Death)"
                     >
                         Director
@@ -26,6 +28,7 @@
                     <button
                         mat-button
                         color="primary"
+                        class="action-btn"
                         (click)="openSynposisDialog(movie.Title, movie.Description)"
                     >
                         Synposis

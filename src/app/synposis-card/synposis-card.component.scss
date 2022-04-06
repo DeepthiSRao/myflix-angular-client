@@ -1,0 +1,16 @@
+mat-card-header {
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+mat-card-title {
+    margin: 0 !important;
+    span {
+        opacity: 0.8;
+    }
+}
+
+mat-card {
+    padding: 8px !important;
+}

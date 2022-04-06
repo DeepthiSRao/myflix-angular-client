@@ -1,6 +1,9 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>Title: {{ data.title }}</mat-card-title>
+        <mat-card-title>Movie: <span>{{ data.title }}</span></mat-card-title>
+        <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
     </mat-card-header>
     <mat-card-content>
         {{ data.description }}

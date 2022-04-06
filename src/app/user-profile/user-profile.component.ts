@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { EditUserComponent } from './../edit-user/edit-user.component';
 import { SynposisCardComponent } from './../synposis-card/synposis-card.component';
 import { Component, OnInit } from '@angular/core';
@@ -56,10 +57,18 @@ export class UserProfileComponent implements OnInit {
     birth: string,
     death: string 
   ) : void {
+    death = (death === undefined) ? 'N/A' : death;
+    birth = this.getFormatedDate(birth,'MM-dd-yyyy') || 'null';
     this.dialog.open(DirectorCardComponent, {
       data: { name, bio, birth, death },
       width: '300px'
     });
+  }
+
+  // format date
+  getFormatedDate(date: any, format: string) {
+    const datePipe = new DatePipe('en-US');
+    return datePipe.transform(date, format);
   }
 
   // open a dialog to display movie deatils
@@ -73,7 +82,7 @@ export class UserProfileComponent implements OnInit {
   // open a dialog to edit user details
   openEditUserForm(): void{
     this.dialog.open(EditUserComponent, {
-      width: '400px',
+      width: '280px',
     });
   }
 
