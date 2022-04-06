@@ -1,27 +1,39 @@
 # MyFlixAngularClient
+MyFlix is a client side application built using AngularJS for its existing server-side code. MyFlix app is a responsive app that displays a list of movies for registered users. Users are allowed to view the movie details and favorite a movies.
+The project was generated with the [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0 and is written in TypeScript.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+## App features,
 
-## Development server
+1. Login and Registration are implemented.
+2. Displays list of movies.
+3. Users can click on movies, to explore movie details, director and genre details.
+4. Users can update their personal information.
+5. Users are allowed to favorite/unfavorite a movie. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Project live demo link : https://deepthisrao.github.io/myflix-angular-client/
+![Markdown Logo](/src/app/images/HomePage.png)
 
-## Code scaffolding
+### Server side live demo link: https://my-flix-movie-api.herokuapp.com/
+### Server side code link: https://my-flix-movie-api.herokuapp.com/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
 
-## Build
+Clone the repository, change directories, and use NPM to install the dependencies.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+$ git clone https://github.com/DeepthiSRao/myflix-angular-client.git
+$ cd myflix-angular-client
+$ npm install
+```
+Next install the Angular CLI,
+```
+npm install -g @angular/cli
+```
+In the project directory, run:
+```
+ng serve 
+```
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
