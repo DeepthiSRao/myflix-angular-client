@@ -1,3 +1,7 @@
+/**
+ * The UserRegistrationFormComponent is show registration form for new user to signup.
+ * @module UserRegistrationFormComponent
+ */
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -18,6 +22,12 @@ export class UserRegistrationFormComponent implements OnInit {
     Birthday: ''
   };
 
+  /**
+   * Injecting FetchApiDataService, MatDialog, MatSnackBar and Router dependency into UserRegistrationFormComponent contructor.
+   * @param fetchDataApi Api Service Class
+   * @param dialog Class used to show dialogs 
+   * @param snackBar Class used to show notification
+   */ 
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
@@ -27,7 +37,11 @@ export class UserRegistrationFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // onClick of registration button send data to the backend
+   /**
+   * Invokes registerUser fetchDataApi service and creates a new user. After successful signup, closes the dialog and a popup is 
+   * displayed confirming registration success. If unsuccessful, a popup message asks the user to check the data entered.
+   * @function registerUser
+   */
   registerUser(): void {
     this.fetchApiData
         .userRegistration(this.userData)

@@ -1,3 +1,7 @@
+/**
+ * The UserLoginFormComponent is show login form for entering user credentials.
+ * @module UserLoginFormComponent
+ */
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -16,6 +20,13 @@ export class UserLoginFormComponent implements OnInit {
     Password: '',
   };
 
+  /**
+   * Injecting FetchApiDataService, MatDialog, MatSnackBar and Router dependency into UserLoginFormComponent contructor.
+   * @param fetchDataApi Api Service Class
+   * @param dialog Class used to show dialogs 
+   * @param snackBar Class used to show notification
+   * @param router Class that provides navigation among views
+   */ 
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
@@ -26,7 +37,12 @@ export class UserLoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  //onClick of login button 
+ /**
+   * Invokes userLogin fetchDataApi service and authenticates the user credentials. After successful login, navigates to movies route. From response
+   * userID, auth Token and user data is extrcated and stored in local storage. A popup is displayed confirming login success. If unsuccessful, a 
+   * popup message asks the user to check their username and password.
+   * @function loginUser
+   */
   loginUser(): void {
     this.fetchApiData
         .userLogin(this.userData)

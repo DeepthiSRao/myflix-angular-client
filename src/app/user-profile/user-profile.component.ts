@@ -1,3 +1,8 @@
+/**
+ * The UserProfileComponent renders mat card with user details, edit/delete buttons and list of favorite movie card. Movie mat card
+ * has director, genre, synposis and delete buttons.
+ * @module UserProfileComponent
+ */
 import { DatePipe } from '@angular/common';
 import { EditUserComponent } from './../edit-user/edit-user.component';
 import { SynposisCardComponent } from './../synposis-card/synposis-card.component';
@@ -18,6 +23,13 @@ export class UserProfileComponent implements OnInit {
   user: any = {};
   favoriteMovies: any[] = [];
 
+  /**
+   * Injecting FetchApiDataService, MatDialog, MatSnackBar and Router dependency into UserProfileComponent contructor.
+   * @param fetchDataApi Api Service Class
+   * @param dialog Class used to show dialogs 
+   * @param snackBar Class used to show notification
+   * @param router Class that provides navigation among views
+   */ 
   constructor(
     public fetchDataApi: FetchApiDataService,
     public snackBar: MatSnackBar,
@@ -25,10 +37,18 @@ export class UserProfileComponent implements OnInit {
     public router: Router,
   ) { }
 
+  /**
+   * Calls getInitData during component initialize to populate the data.
+   */
   ngOnInit(): void {
     this.getInitData();
   }
 
+  /**
+   * Invokes getAllMovies api with movieID and user data. Response returns an array of movie objects and user favorite movie list 
+   * is filtered.
+   * @function getInitData
+   */
   getInitData(): void{
     this.user = JSON.parse(localStorage.getItem('user') || '{}');  
     const userFavList = this.user.FavoriteMovies;
@@ -42,7 +62,12 @@ export class UserProfileComponent implements OnInit {
         });
   }
 
-  // open a dialog to dispaly Genre details
+  /**
+   * Opens a dialog to display the Genre component.
+   * @function openGenreDialog
+   * @param name Genre of the movie clicked
+   * @param description Description of the movie clicked  
+   */
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreCardComponent, {
       data: { name, description},
@@ -50,7 +75,14 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  // open a dialog to display director details
+  /**
+   * Opens a dialog to display the Director component.
+   * @function openDirectorDialog
+   * @param name Director name of the movie clicked
+   * @param bio Director bio of the movie clicked  
+   * @param birth Director birthdate of the movie clicked  
+   * @param death Director deathdate of the movie clicked  
+   */
   openDirectorDialog( 
     name: string, 
     bio: string ,
@@ -65,13 +97,23 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  // format date
+  /**
+   * Converts date from string to Date object format
+   * @function getFormatedDate
+   * @param date Date in string
+   * @param format Required date format   
+   */
   getFormatedDate(date: any, format: string) {
     const datePipe = new DatePipe('en-US');
     return datePipe.transform(date, format);
   }
 
-  // open a dialog to display movie deatils
+  /**
+   * Opens a dialog to display the Synposis component.
+   * @function openSynposisDialog
+   * @param title Title of the movie clicked
+   * @param description Description of the movie clicked  
+   */
   openSynposisDialog(title: string, description: string): void {
     this.dialog.open(SynposisCardComponent, {
       data: { title, description},
@@ -79,14 +121,21 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  // open a dialog to edit user details
+  /**
+   * Opens a dialog to display the Edit User component.
+   * @function openEditUserForm
+   */
   openEditUserForm(): void{
     this.dialog.open(EditUserComponent, {
       width: '280px',
     });
   }
 
-  // api request to delete current signed in user
+  /**
+   * Invokes deleteUser api with Username. If user is successfully deregistred, User deleted successfully message is popped
+   * and local storage is cleared. Router navigates to home route.
+   * @function deleteFavoriteMovie
+   */
   deleteUser(): void{
     const { Username } = this.user;
 
@@ -101,7 +150,12 @@ export class UserProfileComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
-  // api request for deleting movie to user favorite list
+  /**
+   * Invokes deleteFavoriteMovie api with movieID and user data. Api returns a user object with updated favorite list. 
+   * If successful, updates a user object on local storage and shows a popup message after removing movie from user favorite list.
+   * @function deleteFavoriteMovie
+   * @param movie movie object clicked
+   */
   deleteFavoriteMovie(movie: any): void{
     const movieId = movie._id;
     const title = movie.Title;

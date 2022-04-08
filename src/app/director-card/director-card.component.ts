@@ -1,3 +1,7 @@
+/**
+ * The DirectorCardComponent renders director information when director button is clicked on movie card.
+ * @module DirectorCardComponent
+ */
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -7,7 +11,11 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./director-card.component.scss']
 })
 export class DirectorCardComponent implements OnInit {
-
+  /**
+   *  Constructor Injection
+   *  The data that was passed to Director dialog in the MovieCardComponent is injected in to the constructor using 
+   *  MAT_DIALOG_DATA injection token.
+   */
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: { 

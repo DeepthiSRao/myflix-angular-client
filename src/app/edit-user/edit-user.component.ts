@@ -1,3 +1,8 @@
+/**
+ * The EditUserComponent fetches user information stored in local storage and renders edit user form with fetched data to be 
+ * updated.
+ * @module EditUserComponent
+ */
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FetchApiDataService } from './../fetch-api-data.service';
 import { Component, Input, OnInit } from '@angular/core';
@@ -20,12 +25,21 @@ export class EditUserComponent implements OnInit {
     Birthday: this.getFormatedDate(this.user.Birthday,'yyyy-MM-dd'),
   };
 
+  /**
+   * Injecting FetchApiDataService, MatDialog and MatSnackBar dependency into MovieCardComponent contructor.
+   * @param fetchDataApi Api Service Class
+   * @param dialog Class used to show dialogs 
+   * @param snackBar Class used to show notification
+   */ 
   constructor(
     public fetchDataApi: FetchApiDataService,
     public snackBar: MatSnackBar,
     public dialog: MatDialogRef<EditUserComponent>,
   ) {}
 
+  /**
+   * Calls the getUser method during component initialize to populate the data.
+   */  
   ngOnInit(): void {
     this.getUser();
   }
@@ -36,10 +50,22 @@ export class EditUserComponent implements OnInit {
     return datePipe.transform(date, format);
   }
 
+  
+  /** 
+   * Invokes the getUser method to fetch the user object stored in local storage. 
+   * @function getUser
+   * @returns an user object
+   */ 
   getUser(): void{
     this.user = JSON.parse(localStorage.getItem('user') || '{}');
   }
 
+  /**
+   * Invokes editUser api with user name and user form data. 
+   * Updates user object on local storage.
+   * @function updateUser
+   * @returns object with updated user data  
+   */
   updateUser(): void{    
     this.fetchDataApi
         .editUser(this.user.Username, this.userData)

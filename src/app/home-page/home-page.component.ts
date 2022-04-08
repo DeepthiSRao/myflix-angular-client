@@ -1,3 +1,9 @@
+/**
+ * The HomePageComponent renders Welcome message, signup and login button. 
+ * OnClick of login button, login form will be showed in mat dialog. 
+ * OnClick of signup button, signup form will be showed in mat dialog. 
+ * @module HomePageComponent
+ */
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserLoginFormComponent } from '../user-login-form/user-login-form.component';
@@ -9,12 +15,21 @@ import { UserRegistrationFormComponent } from './../user-registration-form/user-
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  /**
+   * Injecting FetchApiDataService, MatDialog and MatSnackBar dependency into MovieCardComponent contructor.
+   * @param dialog Class used to show dialogs 
+   */ 
+  constructor(
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
   }
 
-  // This function will open the dialog when signup button is clicked
+   /**
+   * Opens a dialog to display the Login component.
+   * @function openUserRegistrationDialog 
+   */
   openUserRegistrationDialog(): void{
     this.dialog.open(UserRegistrationFormComponent, {
       // assigning dialog width
@@ -22,7 +37,10 @@ export class HomePageComponent implements OnInit {
     });
   }
 
-  // This function will open the dialog when signup button is clicked
+   /**
+   * Opens a dialog to display the Login component.
+   * @function openUserLoginDialog 
+   */
   openUserLoginDialog(): void{
     this.dialog.open(UserLoginFormComponent, {
       // assigning dialog width
